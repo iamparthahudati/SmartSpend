@@ -1,4 +1,4 @@
-package com.rnbasictemplate
+package com.ph.smartspend
 
 import android.app.Application
 import com.facebook.react.PackageList

@@ -10,11 +10,13 @@ import { useEffect } from 'react';
 import { Alert, StatusBar } from 'react-native';
 import RootNavigator from './src/navigation/RootNavigator';
 import { isFirebaseReady } from './src/services/firebase';
+import { setupInterceptors } from './src/services/interceptors';
 import {
   listenForegroundNotifications,
   requestNotificationPermission,
 } from './src/services/notifications';
 function App() {
+  setupInterceptors();
   useEffect(() => {
     requestNotificationPermission();
 
