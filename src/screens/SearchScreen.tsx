@@ -9,18 +9,15 @@ import {
 } from 'react-native';
 import { Icons } from '../assets';
 import AppButton from '../components/AppButton';
+import Header from '../components/Header';
 
-export default function FindBestCardScreen() {
+const FindBestCardScreen = () => {
   const [amount, setAmount] = useState('0.00');
   const [category, setCategory] = useState('Shopping & Lifestyle');
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.back}>←</Text>
-        <Text style={styles.headerTitle}>Find Best Card</Text>
-      </View>
+      <Header title="Find the best card for you" />
 
       {/* Title */}
       <Text style={styles.title}>
@@ -77,8 +74,8 @@ export default function FindBestCardScreen() {
       <AppButton title="FIND BEST CARD" style={styles.button} />
     </SafeAreaView>
   );
-}
-
+};
+export default FindBestCardScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
