@@ -1,8 +1,9 @@
-import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
+import apiClient from '../services/apiClient';
+import { getHomeBanner } from './getHomeScreenBanner.api';
 import { MockHandler } from './mockTypes';
 
-const mock = new MockAdapter(axios, { delayResponse: 500 });
+const mock = new MockAdapter(apiClient, { delayResponse: 500 });
 
 const register = (handler: MockHandler[] | MockHandler) => {
   if (Array.isArray(handler)) {
@@ -19,4 +20,6 @@ const register = (handler: MockHandler[] | MockHandler) => {
     }
   }
 };
-register([]);
+register([getHomeBanner]);
+
+export default mock;

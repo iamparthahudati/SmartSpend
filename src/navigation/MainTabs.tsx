@@ -5,7 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import FindBestCardScreen from '../screens/SearchScreen';
 export type TabParamList = {
-  Dashboard: undefined;
+  Home: undefined;
   Bank: undefined;
   Search: undefined;
   Budget: undefined;
@@ -21,7 +21,7 @@ const MainTabs = () => {
         headerShown: false,
       }}
     >
-      <Tab.Screen name="Dashboard" component={HomeScreen} />
+      <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Bank" component={ExploreScreen} />
       <Tab.Screen name="Search" component={FindBestCardScreen} />
       <Tab.Screen name="Budget" component={ProfileScreen} />

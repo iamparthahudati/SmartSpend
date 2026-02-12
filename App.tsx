@@ -17,6 +17,7 @@ import {
 } from './src/services/notifications';
 function App() {
   setupInterceptors();
+  require('./src/mocks/mockService');
   useEffect(() => {
     requestNotificationPermission();
 

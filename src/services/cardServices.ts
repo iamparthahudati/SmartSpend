@@ -1,5 +1,5 @@
 import { getApps } from '@react-native-firebase/app';
-import { getCategory } from '../mocks/getCategory.api';
+import { getCategoryApi } from '../mocks/getCategory.api';
 import { apiClient } from './apiClient';
 
 export const getRecommendedCards = async (payload: any) => {
@@ -10,7 +10,7 @@ export const getRecommendedCards = async (payload: any) => {
 export const getCategoryies = async () => {
   // Use mock data when running in a testing environment
   if (getApps().length === 0) {
-    return getCategory();
+    return getCategoryApi();
   } else {
     const { data } = await apiClient.get('/categories');
     return data;
