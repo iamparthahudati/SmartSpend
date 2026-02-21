@@ -7,7 +7,7 @@
 
 import { NavigationContainer } from '@react-navigation/native';
 import { useEffect } from 'react';
-import { Alert, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import RootNavigator from './src/navigation/RootNavigator';
 import { isFirebaseReady } from './src/services/firebase';
 import { setupInterceptors } from './src/services/interceptors';
@@ -28,10 +28,10 @@ function App() {
   useEffect(() => {
     const ready = isFirebaseReady();
 
-    Alert.alert(
-      'Firebase Check',
-      ready ? '✅ Firebase is READY' : '❌ Firebase is NOT ready',
-    );
+    // Alert.alert(
+    //   'Firebase Check',
+    //   ready ? '✅ Firebase is READY' : '❌ Firebase is NOT ready',
+    // );
   }, []);
 
   return (
