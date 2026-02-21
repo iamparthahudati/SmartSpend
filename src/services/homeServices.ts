@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
   BankApiResponse,
+  CardsByCategoryResponse,
   EditorChoiceApiResponse,
   HomeCardResponse,
   HomeCategoryApiResponse,
@@ -111,9 +112,9 @@ export const getHomeBanks = async (): Promise<BankApiResponse | ApiError> => {
 
 export const getCardsByCategory = async (
   categoryId: string,
-): Promise<HomeCategoryApiResponse | ApiError> => {
+): Promise<CardsByCategoryResponse | ApiError> => {
   try {
-    const response = await apiClient.get<HomeCategoryApiResponse>(
+    const response = await apiClient.get<CardsByCategoryResponse>(
       `${ENDPOINTS.GET_CARDS_BY_CATEGORY}/${categoryId}`,
     );
     return response.data;

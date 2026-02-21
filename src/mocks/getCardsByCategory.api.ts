@@ -8,7 +8,7 @@ export const mockCardsByCategory: Record<string, CardsByCategoryResponse> = {
     message: 'Cards fetched successfully',
     title: 'Best Cards for Travel',
     description: 'Maximize your rewards with every trip',
-    cardDetails: [
+    cardList: [
       {
         topCard: true,
         bankName: 'HDFC',
@@ -56,7 +56,7 @@ export const mockCardsByCategory: Record<string, CardsByCategoryResponse> = {
     message: 'Cards fetched successfully',
     title: 'Best Cards for Shopping',
     description: 'Save more on every purchase online and offline',
-    cardDetails: [
+    cardList: [
       {
         topCard: true,
         bankName: 'ICICI',
@@ -104,7 +104,7 @@ export const mockCardsByCategory: Record<string, CardsByCategoryResponse> = {
     message: 'Cards fetched successfully',
     title: 'Best Cards for Dining',
     description: 'Enjoy every meal with great rewards',
-    cardDetails: [
+    cardList: [
       {
         topCard: true,
         bankName: 'HDFC',
@@ -152,7 +152,7 @@ export const mockCardsByCategory: Record<string, CardsByCategoryResponse> = {
     message: 'Cards fetched successfully',
     title: 'Best Cards for Fuel',
     description: 'Save on every refuel with top fuel cards',
-    cardDetails: [
+    cardList: [
       {
         topCard: true,
         bankName: 'SBI',
@@ -200,7 +200,7 @@ export const mockCardsByCategory: Record<string, CardsByCategoryResponse> = {
     message: 'Cards fetched successfully',
     title: 'Best Cards for Entertainment',
     description: 'Get more out of movies, OTT and events',
-    cardDetails: [
+    cardList: [
       {
         topCard: true,
         bankName: 'Axis',
@@ -248,7 +248,7 @@ export const mockCardsByCategory: Record<string, CardsByCategoryResponse> = {
     message: 'Cards fetched successfully',
     title: 'Best Cards for Cashback',
     description: 'Earn real money back on every transaction',
-    cardDetails: [
+    cardList: [
       {
         topCard: true,
         bankName: 'Axis',
@@ -296,7 +296,7 @@ export const mockCardsByCategory: Record<string, CardsByCategoryResponse> = {
     message: 'Cards fetched successfully',
     title: 'Best Cards for Healthcare',
     description: 'Save on medical expenses and pharmacy bills',
-    cardDetails: [
+    cardList: [
       {
         topCard: true,
         bankName: 'HDFC',
@@ -331,7 +331,7 @@ export const mockCardsByCategory: Record<string, CardsByCategoryResponse> = {
     message: 'Cards fetched successfully',
     title: 'Best Cards for Education',
     description: 'Invest in learning and earn rewards',
-    cardDetails: [
+    cardList: [
       {
         topCard: true,
         bankName: 'ICICI',
@@ -366,7 +366,7 @@ export const mockCardsByCategory: Record<string, CardsByCategoryResponse> = {
     message: 'Cards fetched successfully',
     title: 'Best Cards for Utilities',
     description: 'Save on electricity, water and bill payments',
-    cardDetails: [
+    cardList: [
       {
         topCard: true,
         bankName: 'SBI',
@@ -401,7 +401,7 @@ export const mockCardsByCategory: Record<string, CardsByCategoryResponse> = {
     message: 'Cards fetched successfully',
     title: 'Best Cards for Rewards',
     description: 'Earn and redeem points on every spend',
-    cardDetails: [
+    cardList: [
       {
         topCard: true,
         bankName: 'HDFC',
@@ -433,10 +433,12 @@ export const mockCardsByCategory: Record<string, CardsByCategoryResponse> = {
 };
 
 export const getCardsByCategory: MockHandler = {
-  url: `${ENDPOINTS.GET_CARDS_BY_CATEGORY}/:categoryId`,
+  url: new RegExp(`${ENDPOINTS.GET_CARDS_BY_CATEGORY}/.*`),
   method: 'get',
   handler: ((config: any) => {
+    console.log('URL: ', config.url);
     const categoryName = config.url?.split('/').pop() ?? '';
+    console.log('categoryName: ', categoryName);
     return [200, mockCardsByCategory[categoryName]];
   }) as () => [number, any],
 };

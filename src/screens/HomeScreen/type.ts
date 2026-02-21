@@ -69,5 +69,5 @@ export type CardsByCategoryResponse = {
   message: string;
   title: string;
   description: string;
-  cardDetails: CardDetails[];
+  cardList: CardDetails[];
 };

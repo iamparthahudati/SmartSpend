@@ -16,6 +16,9 @@ const CategoryListingScreen = () => {
   const { categories } = params;
 
   const handleCategoryPress = (item: CategoryData) => {
+    navigation.navigate('CardsByCategory', {
+      categoryId: item.category.toLocaleLowerCase(),
+    });
     // TODO: navigate to cards filtered by category
     console.log('Selected category:', item);
   };
@@ -34,16 +37,16 @@ const CategoryListingScreen = () => {
       <FlatList
         data={categories}
         keyExtractor={item => item.id}
-       renderItem={({ item }) => (
-  <TouchableOpacity
-    style={styles.card}
-    onPress={() => handleCategoryPress(item)}
-  >
-    <Text style={styles.icon}>{item.icon}</Text>
-    <Text style={styles.name}>{item.category}</Text>
-    <Text style={styles.arrow}>›</Text>
-  </TouchableOpacity>
-)}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => handleCategoryPress(item)}
+          >
+            <Text style={styles.icon}>{item.icon}</Text>
+            <Text style={styles.name}>{item.category}</Text>
+            <Text style={styles.arrow}>›</Text>
+          </TouchableOpacity>
+        )}
       />
     </View>
   );

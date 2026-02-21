@@ -1,5 +1,6 @@
 import MockAdapter from 'axios-mock-adapter';
 import apiClient from '../services/apiClient';
+import { getCardsByCategory } from './getCardsByCategory.api';
 import {
   getHomeBanks,
   getHomeCategories,
@@ -25,6 +26,12 @@ const register = (handler: MockHandler[] | MockHandler) => {
     }
   }
 };
-register([getHomeBanner, getHomeEditorChoice, getHomeCategories, getHomeBanks]);
+register([
+  getHomeBanner,
+  getHomeEditorChoice,
+  getHomeCategories,
+  getHomeBanks,
+  getCardsByCategory,
+]);
 
 export default mock;
